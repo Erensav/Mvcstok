@@ -10,6 +10,9 @@
         <th>MUSTERI ID</th>
         <th>MUSTERI ADI</th>
         <th>MUSTERI SOYADI</th>
+        <th>SIL</th>
+        <th>GUNCELLE</th>
+
     </tr>
     <tbody>
         @foreach (var mstri in Model)
@@ -18,8 +21,13 @@
                 <th>@mstri.musteriid</th>
                 <td>@mstri.musteriad</td>
                 <td>@mstri.musterisoyad</td>
+                <td>
+                    <a href="/Musteri/SIL/@mstri.musteriid" class="btn btn-danger">SIL</a>
+                </td>
+                <td><a href="/Musteri/GUNCELLE/@mstri.musteriid" class="btn btn-success">GUNCELLE</a></td>
             </tr>
         }
     </tbody>
 </table>
+<a href="/Musteri/YENIMUSTERI/" class="btn btn-primary">YENI MUSTERI EKLE</a>
 
