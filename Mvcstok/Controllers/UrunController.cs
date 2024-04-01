@@ -26,8 +26,6 @@ namespace Mvcstok.Controllers
                                                Value = i.kategoriid.ToString()
                                            }).ToList();
             ViewBag.dgr = degerler;
-
-
             return View();
         }
         [HttpPost]
@@ -39,5 +37,13 @@ namespace Mvcstok.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult SIL(int id)
+        {
+            var urun=db.tbl_urunler.Find(id);
+            db.tbl_urunler.Remove(urun);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
     }
 }
