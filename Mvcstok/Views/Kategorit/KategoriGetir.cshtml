@@ -1,8 +1,24 @@
-﻿
+﻿@model Mvcstok.Models.Entity.tbl_kategoriler
 @{
     ViewBag.Title = "KategoriGetir";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
-<h2>KategoriGetir Sayfasi</h2>
+@using (Html.BeginForm("Guncelle", "Kategori", FormMethod.Post))
+            {
+                <div class="form-group">
+                    @Html.LabelFor(m=>m.kategoriid)
+                    @Html.TextBoxFor(m => m.kategoriid, new {@class="form-control"})
+
+                    @Html.LabelFor(m=>m.kategoriad)
+                    @Html.TextBoxFor(m=>m.kategoriad,new { @class="form-control"})
+
+
+                </div>
+                <div>
+                    <button class="btn btn-warning">Kategori Guncelle</button>
+                </div>
+
+                
+            }
 
