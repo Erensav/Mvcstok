@@ -33,9 +33,11 @@ namespace Mvcstok.Controllers
         [HttpPost]
         public ActionResult YeniUrun(tbl_urunler p1)
         {
+            var ktg=db.tbl_kategoriler.Where(m => m.kategoriid == p1.tbl_kategoriler.kategoriid).FirstOrDefault();
+            p1.tbl_kategoriler = ktg;
             db.tbl_urunler.Add(p1);
             db.SaveChanges();
-            return View();
+            return RedirectToAction("Index");
         }
     }
 }
