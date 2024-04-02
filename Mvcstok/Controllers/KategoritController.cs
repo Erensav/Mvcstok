@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.Pkcs;
 using System.Web;
 using System.Web.Mvc;
 using Mvcstok.Models.Entity;
@@ -38,6 +39,14 @@ namespace Mvcstok.Controllers
         {
             var ktgr = db.tbl_kategoriler.Find(id);
             return View("KategoriGetir",ktgr);
+        }
+        public ActionResult Guncelle(tbl_kategoriler p1)
+        {
+            var ktg = db.tbl_kategoriler.Find(p1.kategoriid);
+            ktg.kategoriad = p1.kategoriad;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+
         }
 
     }
